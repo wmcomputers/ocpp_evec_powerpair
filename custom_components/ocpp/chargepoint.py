@@ -326,7 +326,7 @@ class ChargePoint(cp):
         try:
             self.status = STATE_OK
             await self.fetch_supported_features()
-            self.num_connectors = await self.get_number_of_connectors()
+            self.num_connectors = 2
             for conn in range(1, self.num_connectors + 1):
                 self._init_connector_slots(conn)
             self._metrics[(0, cdet.connectors.value)].value = self.num_connectors
