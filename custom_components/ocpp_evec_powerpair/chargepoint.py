@@ -1050,7 +1050,7 @@ class ChargePoint(cp):
 
         return None
 
-    async def notify_ha(self, msg: str, title: str = "Ocpp integration"):
+    async def notify_ha(self, msg: str, title: str = "OCPP EVEC PowerPair"):
         """Notify user via HA web frontend."""
         await self.hass.services.async_call(
             PN_DOMAIN,

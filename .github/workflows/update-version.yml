@@ -17,7 +17,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
       run: |
         VERSION=${GITHUB_REF#refs/tags/}
-        MANIFEST=custom_components/ocpp/manifest.json
+        MANIFEST=custom_components/ocpp_evec_powerpair/manifest.json
         jq --arg version "$VERSION" '.version = $version' $MANIFEST > tmp.json && mv tmp.json $MANIFEST
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
