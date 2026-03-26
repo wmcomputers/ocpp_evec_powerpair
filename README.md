@@ -1,19 +1,78 @@
-[![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg)](https://github.com/custom-components/hacs)
-[![codecov](https://codecov.io/gh/lbbrhzn/ocpp/branch/main/graph/badge.svg?token=3FRJIF5KRW)](https://codecov.io/gh/lbbrhzn/ocpp)
-[![Documentation Status](https://readthedocs.org/projects/home-assistant-ocpp/badge/?version=latest)](https://home-assistant-ocpp.readthedocs.io/en/latest/?badge=latest)
-[![hacs_downloads](https://img.shields.io/github/downloads/lbbrhzn/ocpp/latest/total)](https://github.com/lbbrhzn/ocpp/releases/latest)
+# OCPP (EVEC PowerPair Patch)
 
-![OCPP](https://github.com/home-assistant/brands/raw/master/custom_integrations/ocpp/icon.png)
+⚠️ **This is a patched fork of the original project and is not the official repository.**
 
-This is a Home Assistant integration for Electric Vehicle chargers that support the following Open Charge Point Protocols 1.6j, 2.0.1 and 2.1 (experimental).
+---
 
-* based on the [Python OCPP Package](https://github.com/mobilityhouse/ocpp).
-* HACS compliant repository 
+## 🔧 About This Fork
 
-Documentation can be found here [home-assistant-ocpp.readthedocs.io](https://home-assistant-ocpp.readthedocs.io)
+This repository contains a **patched version** of the Home Assistant OCPP integration to support the **EVEC PowerPair dual connector charger**.
 
-**💡 Tip:** If you like this project consider buying me a coffee or a cocktail:
+The EVEC PowerPair charger:
+- Uses OCPP 1.6
+- Exposes multiple connectors in runtime traffic
+- Does **not correctly respond** to `NumberOfConnectors` configuration requests
 
-<a href="https://www.buymeacoffee.com/lbbrhzn" target="_blank">
-  <img src="https://cdn.buymeacoffee.com/buttons/default-black.png" alt="Buy Me A Coffee" width="150px">
-</a>
+Because of this, the original integration detects only a single connector.
+
+### ✅ What this patch does
+
+- Forces Home Assistant to correctly initialise **2 connectors**
+- Ensures both connectors are:
+  - Discovered
+  - Created as entities
+  - Fully usable in Home Assistant
+
+---
+
+## 🙌 Credit to Original Project
+
+All credit for this integration goes to the original author:
+
+👉 https://github.com/lbbrhzn/ocpp
+
+This fork is **only a small compatibility patch** and builds entirely on their work.
+
+If you are using a standard OCPP charger, you should use the original project instead.
+
+---
+
+## 📦 Original Project Description
+
+This is a Home Assistant integration for Electric Vehicle chargers that support:
+
+- OCPP 1.6j  
+- OCPP 2.0.1  
+- OCPP 2.1 (experimental)
+
+Based on the Python OCPP package:  
+👉 https://github.com/mobilityhouse/ocpp
+
+Documentation:  
+👉 https://home-assistant-ocpp.readthedocs.io
+
+---
+
+## ⚠️ When Should You Use This Fork?
+
+Use this fork **only if you have an EVEC PowerPair charger** and experience:
+
+- Only 1 connector appearing in Home Assistant
+- Missing entities for the second connector
+
+Otherwise, use the official integration.
+
+---
+
+## 💡 Tip
+
+If you like the original project, consider supporting the author:
+
+https://www.buymeacoffee.com/lbbrhzn
+
+---
+
+## 📌 Disclaimer
+
+This fork is not affiliated with or endorsed by the original author.  
+It exists purely to address a device-specific compatibility issue.
