@@ -1,0 +1,21 @@
+{
+	"domain": "ocpp_evec_powerpair",
+	"name": "OCPP EVEC PowerPair",
+	"after_dependencies": [
+		"persistent_notification"
+	],
+	"codeowners": [
+		"@lbbrhzn",
+		"@drc38",
+		"@wmcomputers"
+	],
+	"config_flow": true,
+	"documentation": "https://github.com/wmcomputers/ocpp_evec_powerpair/blob/main/README.md",
+	"iot_class": "local_push",
+	"issue_tracker": "https://github.com/wmcomputers/ocpp_evec_powerpair/issues",
+	"requirements": [
+		"ocpp>=2.1.0",
+		"websockets>=14.1"
+	],
+	"version": "0.8.0"
+}
