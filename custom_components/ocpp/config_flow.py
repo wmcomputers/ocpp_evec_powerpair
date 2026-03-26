@@ -148,8 +148,8 @@ class ConfigFlow(ConfigFlow, domain=DOMAIN):
         self._cp_id = discovery_info["cp_id"]
         self._data = {**self._entry.data}
 
-        self._detected_num_connectors = discovery_info.get(
-            CONF_NUM_CONNECTORS, DEFAULT_NUM_CONNECTORS
+        self._detected_num_connectors = max(
+            2, int(discovery_info.get(CONF_NUM_CONNECTORS, DEFAULT_NUM_CONNECTORS) or 1)
         )
 
         await self.async_set_unique_id(self._cp_id)
